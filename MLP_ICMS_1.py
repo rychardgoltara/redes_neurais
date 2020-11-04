@@ -300,7 +300,7 @@ def modelo(train, validation, test, raw, scaler, n_batch, nb_epoch, neurons):
    # activation= 'softmax'
    # activation= 'softsign' -> x / (abs(x) + 1
     #neurons = 2  
-    model.add(Dense(neurons, activation='softmax', input_dim=X.shape[1]))
+    model.add(Dense(neurons, activation='linear', input_dim=X.shape[1]))
     model.add(Dense(1))
 
 #definicao da estrategia de aprendizado
@@ -569,10 +569,10 @@ for ep in epochs:
             e_train,e_val, e_test = run(ep,n,repeats, nb)
             #revisao Karla
             
-            file1.write ("epochs /t n_batch /t neurons\n")
-            file1.write ("%d/t%d/t%d\n" % (ep, nb, n))
-            file1.write ("train /t val /t test\n")
-            file1.write ("%f /t %f /t %f\n\n" % (np.mean(e_train), np.mean(e_val), np.mean(e_test)))
+            file1.write ("epochs \t n_batch \t neurons\n")
+            file1.write ("%d\t%d\t%d\n" % (ep, nb, n))
+            file1.write ("train \t val \t test\n")
+            file1.write ("%f \t %f \t %f\n\n" % (np.mean(e_train), np.mean(e_val), np.mean(e_test)))
             
             #se for o melhor erro de avaliacao ate agora,
             # salva ele e a combinacao que gerou ele
@@ -591,8 +591,8 @@ for ep in epochs:
 
 file1 = open("resultados.txt","a")
 file1.write('Melhor combinacao:\n')
-file1.write("epochs /t n_batch /t neurons\n")
-file1.write("%d /t %d /t %d" % (melhor_combinacao[0], melhor_combinacao[1], melhor_combinacao[2]))
-file1.write("train /t val /t test\n")
-file1.write("%f /t %f /t %f\n" % (melhor_combinacao[3], melhor_combinacao[4], melhor_combinacao[5]))
+file1.write("epochs \t n_batch \t neurons\n")
+file1.write("%d \t %d \t %d" % (melhor_combinacao[0], melhor_combinacao[1], melhor_combinacao[2]))
+file1.write("train \t val \t test\n")
+file1.write("%f \t %f \t %f\n" % (melhor_combinacao[3], melhor_combinacao[4], melhor_combinacao[5]))
 
