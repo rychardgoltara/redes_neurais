@@ -300,13 +300,13 @@ def modelo(train, validation, test, raw, scaler, n_batch, nb_epoch, neurons):
    # activation= 'softmax'
    # activation= 'softsign' -> x / (abs(x) + 1
     #neurons = 2  
-    model.add(Dense(neurons, activation='linear', input_dim=X.shape[1]))
+    model.add(Dense(neurons, activation='softmax', input_dim=X.shape[1]))
     model.add(Dense(1))
 
 #definicao da estrategia de aprendizado
 # optimizer= 'sgd'
     sgd = optimizers.SGD(lr=0.001, decay=1e-6, momentum=0.9, nesterov=True)
-
+  
 	
     train_rmse, valida_rmses, test_rmse, melhor_arq_rmse = list(), list(), list(), list()
     train_mape, valida_mapes, test_mape = list(), list(), list()
@@ -317,12 +317,12 @@ def modelo(train, validation, test, raw, scaler, n_batch, nb_epoch, neurons):
     
     model.compile(loss='mean_squared_error', optimizer=sgd, 
                   metrics=['mse', 'mae', 'mape'])    
+    earlystop = EarlyStopping(monitor='val_loss',
+                              min_delta=0.0001,
+                              patience=0,
+                              verbose=0, mode='auto')
     
-    #earlystop = EarlyStopping(monitor='val_loss',
-    #                          min_delta=0.0001,
-    #                          patience=0,
-    #                          verbose=0, mode='auto')
-    
+  
    # patience = representa o número de épocas antes de parar assim que sua perda 
    #            começar a aumentar (para de melhorar). 
    #            Com treino em batch e uma pequena taxa de aprendizado, sua perda será mais suave, 
@@ -542,12 +542,12 @@ results = DataFrame()
 
 #CONFIGURACOES
 # numero de instancias da rede neural para avaliar o processo estocástico da inicializacao das redes neurais
-repeats = 10
+repeats = 3
 # numero de registros apresentados a rede para atualização do modelo
-n_batch = [1,2,3]
+n_batch = [1]
 # variando o número de epocas
 lag = [12]
-epochs = [1] #1000 #[400, 500, 600, 700, 800, 900, 1000]
+epochs = [100] #1000 #[400, 500, 600, 700, 800, 900, 1000]
 # variando o número de neuronios
 neurons = [1, 2, 3, 4, 5, 6, 7] 
 #for l in lag:    
@@ -595,4 +595,5 @@ file1.write("epochs \t n_batch \t neurons\n")
 file1.write("%d \t %d \t %d" % (melhor_combinacao[0], melhor_combinacao[1], melhor_combinacao[2]))
 file1.write("train \t val \t test\n")
 file1.write("%f \t %f \t %f\n" % (melhor_combinacao[3], melhor_combinacao[4], melhor_combinacao[5]))
+file1.close()
 
