@@ -1,0 +1,70 @@
+epochs 	 n_batch 	 neurons
+100	1	1
+train 	 val 	 test
+1386549.862705 	 1386549.862705 	 1228668.948178
+
+epochs 	 n_batch 	 neurons
+100	1	2
+train 	 val 	 test
+109420219.320968 	 77861508.805707 	 14769190.829564
+
+epochs 	 n_batch 	 neurons
+100	1	3
+train 	 val 	 test
+104079692.832192 	 59558816.755893 	 16643993.669407
+
+epochs 	 n_batch 	 neurons
+100	1	4
+train 	 val 	 test
+102243774.358729 	 74402547.830260 	 20865474.543159
+
+epochs 	 n_batch 	 neurons
+100	1	5
+train 	 val 	 test
+105371868.527998 	 80422384.880879 	 46020294.118616
+
+epochs 	 n_batch 	 neurons
+100	1	6
+train 	 val 	 test
+105505584.923919 	 76954309.933382 	 41848261.734772
+
+epochs 	 n_batch 	 neurons
+100	1	7
+train 	 val 	 test
+100209556.243894 	 63154192.131082 	 31144333.638164
+
+epochs 	 n_batch 	 neurons
+100	2	1
+train 	 val 	 test
+7976249.239189 	 7976249.239189 	 3815463.000127
+
+epochs 	 n_batch 	 neurons
+100	2	2
+train 	 val 	 test
+107230568.216280 	 64907813.026708 	 32612918.021815
+
+epochs 	 n_batch 	 neurons
+100	2	3
+train 	 val 	 test
+95848224.611070 	 64147983.145586 	 49561334.204011
+
+epochs 	 n_batch 	 neurons
+100	2	4
+train 	 val 	 test
+93115310.877425 	 52146221.446391 	 33933896.284154
+
+epochs 	 n_batch 	 neurons
+100	2	5
+train 	 val 	 test
+82901616.836527 	 48179623.519438 	 21542629.551389
+
+epochs 	 n_batch 	 neurons
+100	2	6
+train 	 val 	 test
+100076739.906726 	 64393284.393397 	 28633209.526163
+
+epochs 	 n_batch 	 neurons
+100	2	7
+train 	 val 	 test
+81124382.228711 	 29196721.092909 	 27473820.441992
+

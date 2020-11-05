@@ -411,10 +411,18 @@ def modelo(train, validation, test, raw, scaler, n_batch, nb_epoch, neurons):
                     pior_erro_rmse = valida_rmses[num_epocas]
 
     # ---------------------------
+    #file1.write("Valor Real Validação: " + format(raw_validation)"\n")
+    #file1.write("Valores Previstos Validação: " + format(sum(validation_predict)) +"\n" )
+    #file1.write("Somatório dos Valores Previstos Val 1: " +  format(sum(validation_predict[0:12])) +  "\nSomatório dos Valores Previstos Val 2: "+ format(sum(validation_predict[12:24])))
+
     #print("Valor Real Validação: ", raw_validation)
     #print("Valores Previstos Validação: ", validation_predict)
     #print("Somatório dos Valores Previstos Val 1: ", sum(validation_predict[0:12]), "\nSomatório dos Valores Previstos Val 2: ", sum(validation_predict[12:24]))
     
+    
+    #file1.write("Valor Real Teste:\n "+ format(raw_test))
+    #file1.write("Valores Previstos Teste:\n "+ format(sum(test_predict)) + "\n")
+    #file1.write(("Somatório dos Valores Previstos Teste: "+ format(sum(test_predict))))
     #print("Valor Real Teste:\n ", raw_test)
     #print("Valores Previstos Teste:\n ", test_predict)
     #print("Somatório dos Valores Previstos Teste: ", sum(test_predict))
@@ -510,13 +518,15 @@ def run(n_epochs,nh, repeats, n_batch):
        
         #revisao Karla
         #---------------------------
-        #print('%d) TrainRMSE=%f, ValidationRMSE=%f, TestRMSE=%f' % (i, history_rmse['train'].iloc[-1], history_rmse['validation'].iloc[-1], melhor_arq['melhor arq'].iloc[-1]))
 
+        #file1.write("\n %d ,TrainRMSE=%f, ValidationRMSE=%f, TestRMSE=%f \n" % (i, history_rmse['train'].iloc[-1], history_rmse['validation'].iloc[-1], melhor_arq['melhor arq'].iloc[-1]))
+       #print('%d) TrainRMSE=%f, ValidationRMSE=%f, TestRMSE=%f' % (i, history_rmse['train'].iloc[-1], history_rmse['validation'].iloc[-1], melhor_arq['melhor arq'].iloc[-1]))
        
         # revisao Karla
         # ---------------------------
+        #file1.write("\n %d) TrainMAPE=%f, ValidationMAPE=%f \n " % (i, history_mape['train'].iloc[-1], history_mape['validation'].iloc[-1]))
         #print('%d) TrainMAPE=%f, ValidationMAPE=%f' % (i, history_mape['train'].iloc[-1], history_mape['validation'].iloc[-1]))
-        #print('------------------')
+       # print('------------------')
         
         #error_scores.append(history_rmse['test'].iloc[-1])        
         error_train_scores_rmse.append(history_rmse['train'].iloc[-1])
@@ -542,12 +552,12 @@ results = DataFrame()
 
 #CONFIGURACOES
 # numero de instancias da rede neural para avaliar o processo estocástico da inicializacao das redes neurais
-repeats = 3
+repeats = 10
 # numero de registros apresentados a rede para atualização do modelo
-n_batch = [1]
+n_batch = [1,2,3]
 # variando o número de epocas
 lag = [12]
-epochs = [100] #1000 #[400, 500, 600, 700, 800, 900, 1000]
+epochs = [1] #1000 #[400, 500, 600, 700, 800, 900, 1000]
 # variando o número de neuronios
 neurons = [1, 2, 3, 4, 5, 6, 7] 
 #for l in lag:    
